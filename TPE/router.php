@@ -1,6 +1,7 @@
 <?php 
 
 require_once 'app/controllers/videogames.controller.php';
+require_once 'app/controllers/plataforma.controller.php';
 
 define('BASE_URL', '//'.$_SERVER['SERVER_NAME'] . ':' . $_SERVER['SERVER_PORT'] . dirname($_SERVER['PHP_SELF']).'/');
 
@@ -47,6 +48,18 @@ switch ($params[0]) {
         $controller = new videogamesController();
         $id = $params[1];
         $controller->editVideogame($id);
+        break;
+    case 'plataforma' :
+        $controller = new PlataformaController();
+        $controller->showAllPlatforms();
+        break;
+    case 'view_detail_plats':
+        $controller = new PlataformaController();
+        $controller->showIdPlatforms($params[1]);
+        break;
+    case 'add_plataforma':
+        $controller = new PlataformaController();
+        $controller->addPlatform();
         break;
     default:
         header("HTTP/1.1 404 Not Found");

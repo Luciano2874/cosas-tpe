@@ -22,7 +22,6 @@ class videogamesController {
 
     public function showAllVideogames() {
         $videogamesWithPlatforms = $this->model->getAllVideogamesWithPlatforms();
-
         $this->view->showAllVideogames($videogamesWithPlatforms);
     }
 
@@ -32,7 +31,7 @@ class videogamesController {
     }
 
     public function showPageManageVideogames() {
-        $platforms = $this->platforms->getPlataforms();
+        $platforms = $this->platforms->getPlatforms();
         $videogamesWithPlatforms = $this->model->getAllVideogamesWithPlatforms();
 
         $this->view->showPageManageVideogames($videogamesWithPlatforms, $platforms);
